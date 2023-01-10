@@ -4,9 +4,12 @@ public class ArraysExercises {
         Person[] people = {new Person("Brandon"), new Person("Ricky"), new Person("Tiberius")};
 
         for (Person person : people) {
-            System.out.println(people.getName());
+            System.out.println(person.getName());
         }
     }
 
+//    public static Person addPerson() {
+//
+//    }
 
 }
