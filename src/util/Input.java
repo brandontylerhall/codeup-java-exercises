@@ -13,17 +13,30 @@ public class Input {
         in = new Scanner(System.in);
     }
 
-    String getString() {
+    public String getString() {
         return in.nextLine();
     }
 
-    boolean yesNo() {
-        System.out.println("Please enter yes or no: [Y/N]");
-        String answer = in.nextLine().toLowerCase();
-        return answer.equals("y") || answer.equals("yes");
+    public boolean yesNo() {
+        String userInput = in.nextLine().toLowerCase();
+        switch (userInput) {
+            case "n", "no", "uh uh", "nope", "narp", "nah", "nop" -> {
+                return false;
+            }
+            case "y", "yes", "yea", "yeah", "yep", "yarp", "yuh", "yeh" -> {
+                return true;
+            }
+            case "maybe", "mayhaps", "perhaps" -> {
+                System.out.println("hmmmm.... so you do? k.");
+                return yesNo();
+            }
+            default -> {
+                return yesNo();
+            }
+        }
     }
 
-    int getInt(int min, int max) {
+    public int getInt(int min, int max) {
         System.out.print("Enter a number between 1 and 10: ");
         int userInput = in.nextInt();
 
