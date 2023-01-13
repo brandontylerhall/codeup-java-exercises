@@ -49,8 +49,13 @@ public class Input {
 
     public int getInt() {
         System.out.println("Please enter a whole number:");
-        int userInput = in.nextInt();
-        return userInput;
+        try {
+            int userInput = Integer.valueOf(getString());
+            return userInput;
+        } catch (NumberFormatException e) {
+            System.out.println("You probably input something that wasn't a number. Smooth moves! ... Now try again.");
+            return getInt();
+        }
     }
 
     public double getDouble(double min, double max) {
@@ -64,8 +69,13 @@ public class Input {
 
     public double getDouble() {
         System.out.println("Please enter a number:");
-        double userInput = in.nextDouble();
-        return userInput;
+        try {
+            double userInput = Double.valueOf(getString());
+            return userInput;
+        } catch (NumberFormatException e) {
+            System.out.println("You probably input something that wasn't a number. Smooth moves! ... Now try again.");
+            return getDouble();
+        }
     }
 }
 
